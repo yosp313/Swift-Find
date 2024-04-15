@@ -1,0 +1,26 @@
+{
+  "name": "swift-find-server",
+  "version": "1.0.0",
+  "description": "A RESTful api server that interacts with a postgreSQL database for the SwiftFind website",
+  "main": "main.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon main.ts",
+    "build": "npx tsc",
+    "start": "node dist/main.js"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "repository": {
+    "url": "https://github.com/yosp313/swift-find"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
