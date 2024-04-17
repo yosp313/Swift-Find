@@ -14,7 +14,7 @@ export default function Home() {
         <p className="text-xl sm:text-2xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-8">
           The only place that conveys ease and speed of finding products.
         </p>
-        <Link href={"/sign-up"}>
+        <Link href={`${process.env.SERVER_URL}/auth/google`}>
           <Button className="text-md flex gap-2" variant={"secondary"}>
             <CgGoogle size={20} />
             Get Started
