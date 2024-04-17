@@ -27,8 +27,10 @@ TODO:
     - [x] Implement the database using no sql or sql
     - [x] Fetch data from the database
     - [x] Implement Auth using passport with the server using OAuth
+    - [x] add keys to the dotenv
     - [] create a dynamic route for every product/user
-    - [] add keys to the dotenv
+    - [] on passport callback save the user to the db with the relevant data
+    - [] implement sessions using cookies and passport
 
 ##Client
     - [] fetch the data from the backend and show it at the home page
