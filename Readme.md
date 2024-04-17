@@ -37,7 +37,8 @@ The server-side of the project is located in the `Server` directory.
 * [x] Add keys to the `.env` file\
 * [] Create a dynamic route for every product/user\
 * [] On Passport callback, save the user to the DB with relevant data\
-* [] Implement sessions using cookies and Passport
+* [] Implement sessions using cookies and Passport\
+* [] Set the NODE_ENV variable to production before deploying environment
 
 **Client:**
 
