@@ -11,6 +11,7 @@ Styling: The project uses Tailwind CSS for styling, as indicated by the tailwind
 TypeScript: The project is written in TypeScript, providing static type checking.
 ESLint: The project uses ESLint for linting, as indicated by the .eslintrc.json file.
 Next.js Configuration: The next.config.mjs file contains the configuration for Next.js.
+
 Server
 The server-side of the project is located in the Server directory.
 
@@ -22,12 +23,18 @@ Please refer to the individual files and directories for more detailed informati
 
 TODO:
 
-- [] Implement the database using no sql or sql
-- [] Fetch data from the database and load it at the front end
-- [] Create dynamic route for each product that displays the image and description
-- [] Make a shopping cart page
-- [] Implement adding products to cart
-- [] user can delete products from the cart
-- [] Implement payment using stripe api
-- [] add a user form so they leave a review on the website after purchasing
-- [] Implement Auth using passport with the server using OAuth
+##Server:
+    - [x] Implement the database using no sql or sql
+    - [x] Fetch data from the database
+    - [x] Implement Auth using passport with the server using OAuth
+    - [] create a dynamic route for every product/user
+    - [] add keys to the dotenv
+
+##Client
+    - [] fetch the data from the backend and show it at the home page
+    - [] Create dynamic route for each product that displays the image and description
+    - [] Make a shopping cart page
+    - [] Implement adding products to cart
+    - [] user can delete products from the cart
+    - [] Implement payment using stripe api
+    - [] add a user form so they leave a review on the website after purchasing
