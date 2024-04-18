@@ -35,7 +35,6 @@ The server-side of the project is located in the `Server` directory.
 - [x] Fetch data from the database\
 - [x] Implement Auth using Passport with the server using OAuth\
 - [x] Add keys to the `.env` file\
-- [] Create a dynamic route for every product\
 - [] On Passport callback, save the user to the DB with relevant data\
 - [] Implement sessions using cookies and Passport\
 - [] Set the NODE_ENV variable to production before deploying environment
@@ -43,7 +42,7 @@ The server-side of the project is located in the `Server` directory.
 **Client:**
 
 - [x] Fetch data from the backend and show it at the homepage\
-- [] Create dynamic route for each product that displays the image and description\
+- [x] Create dynamic route for each product that displays the image and description\
 - [] Make a shopping cart page\
 - [] Implement adding products to cart\
 - [] Allow user to delete products from the cart\
