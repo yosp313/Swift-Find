@@ -48,3 +48,9 @@ The server-side of the project is located in the `Server` directory.
 - [] Allow user to delete products from the cart\
 - [] Implement payment using Stripe API\
 - [] Add a user form to leave a review on the website after purchasing
+
+## License
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
