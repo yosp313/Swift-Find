@@ -1,4 +1,5 @@
 import { NavBar } from "@/components/NavBar";
+import { Button } from "@/components/ui/button";
 import { getSingleProduct } from "@/utils/sanity/sanity";
 import Image from "next/image";
 import React from "react";
@@ -13,7 +14,7 @@ export default async function ProductPage({
   return (
     <>
       <NavBar />
-      <div className="flex flex-col justify-center items-center gap-11">
+      <div className="flex flex-col justify-center items-center gap-5">
         <h1 className="text-4xl font-semibold">{product.title}</h1>
         <Image
           className="rounded"
@@ -23,6 +24,7 @@ export default async function ProductPage({
           height={400}
         />
         <p>{product.description}</p>
+        <Button variant={"secondary"}>Purchase</Button>
       </div>
     </>
   );
