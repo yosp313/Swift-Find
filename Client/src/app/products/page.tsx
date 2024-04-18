@@ -21,7 +21,7 @@ export default async function Products() {
         <div className="flex gap-20 pt-20 flex-wrap items-end">
           {products.map((product) => (
             <Link href={`products/${product.slug}`} key={product._id}>
-              <Card className="bg-black text-white border-2 border-gray-500">
+              <Card className="bg-black text-white border-2 border-gray-500 flex flex-col items-center min-h-fit w-56">
                 <CardHeader>
                   <CardTitle>{product.title}</CardTitle>
                 </CardHeader>
@@ -30,11 +30,13 @@ export default async function Products() {
                     className="rounded-xl"
                     src={product.mainImage.asset.url}
                     alt={`${product.title} image`}
-                    width={200}
-                    height={200}
+                    width={150}
+                    height={150}
                   />
                 </CardContent>
-                <CardFooter>{product.description}</CardFooter>
+                <CardFooter className="text-wrap">
+                  {product.description}
+                </CardFooter>
               </Card>
             </Link>
           ))}

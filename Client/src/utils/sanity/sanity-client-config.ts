@@ -1,7 +1,7 @@
 const sanityClientConf = {
   projectId: "wlhkuohe",
   dataset: "production",
-  apiVersion: "2022-03-07",
+  apiVersion: "2022-07-07",
   useCdn: true,
 };
 
