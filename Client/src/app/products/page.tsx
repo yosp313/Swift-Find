@@ -30,13 +30,10 @@ export default async function Products() {
                     className="rounded-xl"
                     src={product.mainImage.asset.url}
                     alt={`${product.title} image`}
-                    width={150}
-                    height={150}
+                    width={200}
+                    height={200}
                   />
                 </CardContent>
-                <CardFooter className="text-wrap">
-                  {product.description}
-                </CardFooter>
               </Card>
             </Link>
           ))}

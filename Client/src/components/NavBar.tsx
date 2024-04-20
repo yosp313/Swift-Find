@@ -1,5 +1,9 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import Image from "next/image";
+
+import shoppingCart from "../../public/shopping-cart.svg";
 
 export const NavBar = () => {
   return (
@@ -9,13 +13,19 @@ export const NavBar = () => {
       </Link>
       <div className="flex gap-7 pr-20">
         <Link href="/products">
-          <Button className="text-white font-semibold" variant={"link"}>
+          <Button className="text-white text-xl font-semibold" variant={"link"}>
             Products
           </Button>
         </Link>
-        <Button className="text-white font-semibold" variant={"link"}>
-          Profile
-        </Button>
+        <Link href="/shopping-cart">
+          <Button className="text-white font-semibold" variant={"link"}>
+            <Image src={shoppingCart} alt="" height={24} width={24} />
+          </Button>
+        </Link>
+        <Avatar>
+          <AvatarImage src="" alt="User profile picture" />
+          <AvatarFallback className="bg-slate-500">YA</AvatarFallback>
+        </Avatar>
       </div>
     </nav>
   );

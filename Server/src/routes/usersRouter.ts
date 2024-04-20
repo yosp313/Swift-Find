@@ -1,6 +1,14 @@
 import { Router } from "express";
-import { userGetController } from "../controllers/userControllers";
+import {
+  usersGetController,
+  userPostController,
+  userGetController,
+} from "../controllers/userControllers";
 
 export const userRouter = Router();
 
-userRouter.get("/", userGetController);
+userRouter.get("/", usersGetController);
+
+userRouter.get("/oneuser", userGetController);
+
+userRouter.post("/", userPostController);

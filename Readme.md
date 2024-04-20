@@ -35,7 +35,8 @@ The server-side of the project is located in the `Server` directory.
 - [x] Fetch data from the database\
 - [x] Implement Auth using Passport with the server using OAuth\
 - [x] Add keys to the `.env` file\
-- [] On Passport callback, save the user to the DB with relevant data\
+- [x] On Passport callback, save the user to the DB with relevant data\
+- [] send the display name and image url to the front end to display them\
 - [] Implement sessions using cookies and Passport\
 - [] Set the NODE_ENV variable to production before deploying environment
 
@@ -47,7 +48,7 @@ The server-side of the project is located in the `Server` directory.
 - [] Implement adding products to cart\
 - [] Allow user to delete products from the cart\
 - [] Implement payment using Stripe API\
-- [] Add a user form to leave a review on the website after purchasing
+- [] Add a user form to leave a review on the website after purchasing (optional)
 
 ## License
 

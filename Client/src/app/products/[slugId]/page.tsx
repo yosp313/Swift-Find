@@ -27,7 +27,9 @@ export default async function ProductPage({
         </div>
         <div className="flex flex-col items-center gap-20 pl-20">
           <p>{product.description}</p>
-          <Button variant={"secondary"}>Purchase</Button>
+          <Button variant={"secondary"} className="font-bold">
+            Add to cart
+          </Button>
         </div>
       </div>
     </>
