@@ -48,6 +48,7 @@ The server-side of the project is located in the `Server` directory.
 - [] Implement adding products to cart\
 - [] Allow user to delete products from the cart\
 - [] Implement payment using Stripe API\
+- [] Make all the routes need authentication
 - [] Add a user form to leave a review on the website after purchasing (optional)
 
 ## License

@@ -22,7 +22,7 @@ export default async function Products() {
                 </CardHeader>
                 <CardContent>
                   <Image
-                    className="rounded-xl"
+                    className="rounded-md"
                     src={product.mainImage.asset.url}
                     alt={`${product.title} image`}
                     width={200}

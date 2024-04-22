@@ -1,3 +1,5 @@
+"use server";
+
 import { createClient } from "next-sanity";
 import sanityClientConf from "./sanity-client-config";
 import { Product } from "./types";

@@ -2,7 +2,6 @@ import { NavBar } from "@/components/NavBar";
 import { Button } from "@/components/ui/button";
 import { getSingleProduct } from "@/utils/sanity/sanity";
 import Image from "next/image";
-import React from "react";
 
 export default async function ProductPage({
   params,
@@ -18,7 +17,7 @@ export default async function ProductPage({
         <div className="flex flex-col gap-5">
           <h1 className="text-4xl font-semibold">{product.title}</h1>
           <Image
-            className="rounded"
+            className="rounded-md h-auto w-auto"
             src={product.mainImage.asset.url}
             alt={`${product.title} image`}
             width={400}

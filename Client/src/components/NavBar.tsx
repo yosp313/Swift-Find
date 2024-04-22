@@ -5,11 +5,17 @@ import Image from "next/image";
 
 import shoppingCart from "../../public/shopping-cart.svg";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 export const NavBar = () => {
   const cookiesStore = cookies();
-  const userString: string = cookiesStore.get("user")?.value.slice(2) as string;
-  const user = JSON.parse(userString)[0];
+  const userCookie: string = cookiesStore.get("user")?.value.slice(2) as string;
+
+  if (!userCookie) {
+    return redirect("/");
+  }
+
+  const user = JSON.parse(userCookie)[0];
 
   return (
     <nav className="flex justify-between mt-5 pb-5 mb-10 border-b-2 border-gray-700 items-center">
