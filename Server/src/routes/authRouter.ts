@@ -14,9 +14,15 @@ authRouter.get(
 
 authRouter.get(
   "/google/callback",
-  passport.authenticate("google", {
-    successRedirect: "http://localhost:3000/products",
-    failureRedirect: "http://localhost:3000",
-    passReqToCallback: true,
-  })
+  passport.authenticate("google"),
+  (req: Request, res: Response) => {
+    res.cookie("user", req.user, {
+      maxAge: 1000 * 60 * 60,
+      httpOnly: true,
+      sameSite: "none",
+      secure: true,
+      path: "/",
+    });
+    res.redirect("http://localhost:3000/products");
+  }
 );

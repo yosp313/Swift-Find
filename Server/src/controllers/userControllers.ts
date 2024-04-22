@@ -7,7 +7,10 @@ export const usersGetController = async (req: Request, res: Response) => {
   res.json(users);
 };
 
-export const userGetController = async (req: Request, res: Response) => {};
+export const userGetController = async (req: Request, res: Response) => {
+  const user = req.cookies.user;
+  res.send(user);
+};
 
 export const userPostController = async (req: Request, res: Response) => {
   const data = req.body;

@@ -4,14 +4,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Image from "next/image";
 
 import shoppingCart from "../../public/shopping-cart.svg";
+import { cookies } from "next/headers";
 
 export const NavBar = () => {
+  const cookiesStore = cookies();
+  const userString: string = cookiesStore.get("user")?.value.slice(2) as string;
+  const user = JSON.parse(userString)[0];
+
   return (
     <nav className="flex justify-between mt-5 pb-5 mb-10 border-b-2 border-gray-700 items-center">
       <Link href="/" className="pl-10">
         Logo
       </Link>
-      <div className="flex gap-7 pr-20">
+      <div className="flex gap-7 pr-20 items-center">
         <Link href="/products">
           <Button className="text-white text-xl font-semibold" variant={"link"}>
             Products
@@ -23,9 +28,12 @@ export const NavBar = () => {
           </Button>
         </Link>
         <Avatar>
-          <AvatarImage src="" alt="User profile picture" />
-          <AvatarFallback className="bg-slate-500">YA</AvatarFallback>
+          <AvatarImage src={user.imageUrl} alt="User profile picture" />
+          <AvatarFallback className="bg-slate-500">
+            {user.fullName}
+          </AvatarFallback>
         </Avatar>
+        {user.fullName}
       </div>
     </nav>
   );

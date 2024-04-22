@@ -7,12 +7,12 @@ import { User } from "./db/schema";
 configDotenv();
 
 passport.serializeUser((user, cb) => {
-  process.nextTick(() => cb(null, user));
+  cb(null, user);
 });
 
 passport.deserializeUser(async (id: string, cb) => {
   const user = await getUser(id);
-  process.nextTick(() => cb(null, user));
+  cb(null, user);
 });
 
 passport.use(
@@ -23,23 +23,21 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     },
     async (accessToken, refreshToken, profile, cb) => {
-      process.nextTick(async () => {
-        const currentUser = await getUser(profile.id);
+      const currentUser = await getUser(profile.id);
 
-        if (!currentUser[0]) {
-          const user: User = {
-            email: profile.emails?.[0]?.value ?? "",
-            id: profile.id,
-            fullName: profile.displayName,
-            imageUrl: profile.photos?.[0]?.value ?? "",
-          };
+      if (!currentUser[0]) {
+        const user: User = {
+          email: profile.emails?.[0]?.value ?? "",
+          id: profile.id,
+          fullName: profile.displayName,
+          imageUrl: profile.photos?.[0]?.value ?? "",
+        };
 
-          await postUser(user);
-          return cb(null, user);
-        }
-
-        return cb(null, currentUser);
-      });
+        await postUser(user);
+        cb(null, user);
+      } else {
+        cb(null, currentUser);
+      }
     }
   )
 );

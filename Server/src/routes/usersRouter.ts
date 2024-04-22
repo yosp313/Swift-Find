@@ -9,6 +9,6 @@ export const userRouter = Router();
 
 userRouter.get("/", usersGetController);
 
-userRouter.get("/oneuser", userGetController);
+userRouter.get("/profile", userGetController);
 
 userRouter.post("/", userPostController);

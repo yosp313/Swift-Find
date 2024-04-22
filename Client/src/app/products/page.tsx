@@ -1,11 +1,5 @@
 import { NavBar } from "@/components/NavBar";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getProducts } from "@/utils/sanity/sanity";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,6 +7,7 @@ import React from "react";
 
 export default async function Products() {
   const products = await getProducts();
+
   return (
     <>
       <NavBar />
