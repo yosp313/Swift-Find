@@ -36,8 +36,8 @@ The server-side of the project is located in the `Server` directory.
 - [x] Implement Auth using Passport with the server using OAuth\
 - [x] Add keys to the `.env` file\
 - [x] On Passport callback, save the user to the DB with relevant data\
-- [] send the display name and image url to the front end to display them\
-- [] Implement sessions using cookies and Passport\
+- [x] send the display name and image url to the front end to display them\
+- [x] Implement sessions using cookies and Passport\
 - [] Set the NODE_ENV variable to production before deploying environment
 
 **Client:**
