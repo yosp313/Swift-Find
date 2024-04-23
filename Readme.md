@@ -46,7 +46,7 @@ The server-side of the project is located in the `Server` directory.
 - [x] Fetch data from the backend and show it at the homepage\
 - [x] Create dynamic route for each product that displays the image and description\
 - [x] Make all the routes need authentication\
-- [] Add a logout button that clears out the cookies
+- [x] Add a logout button that clears out the cookies
 - [] Make a shopping cart page\
 - [] Implement adding products to cart\
 - [] Allow user to delete products from the cart\

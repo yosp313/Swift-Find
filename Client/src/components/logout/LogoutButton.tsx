@@ -1,15 +1,12 @@
 "use client";
 
 import React from "react";
-import { Button } from "./ui/button";
-import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
+import { Button } from "../ui/button";
+import { logout } from "./logout";
 
 export default function LogoutButton() {
-  const router = useRouter();
-  const handleLogout = () => {
-    Cookies.remove("user", { path: "/" });
-    router.push("/");
+  const handleLogout = async () => {
+    logout();
   };
 
   return (

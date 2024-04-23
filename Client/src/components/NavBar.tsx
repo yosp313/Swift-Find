@@ -6,7 +6,7 @@ import Image from "next/image";
 import shoppingCart from "../../public/shopping-cart.svg";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import LogoutButton from "./LogoutButton";
+import LogoutButton from "./logout/LogoutButton";
 
 export const NavBar = () => {
   const cookiesStore = cookies();
