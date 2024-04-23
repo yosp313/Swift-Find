@@ -17,7 +17,7 @@ authRouter.get(
   passport.authenticate("google"),
   (req: Request, res: Response) => {
     res.cookie("user", req.user, {
-      maxAge: 1000 * 60 * 60,
+      maxAge: 1000 * 60 * 20,
       httpOnly: true,
       sameSite: "none",
       secure: true,

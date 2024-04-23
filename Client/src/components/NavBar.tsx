@@ -6,6 +6,7 @@ import Image from "next/image";
 import shoppingCart from "../../public/shopping-cart.svg";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import LogoutButton from "./LogoutButton";
 
 export const NavBar = () => {
   const cookiesStore = cookies();
@@ -20,7 +21,7 @@ export const NavBar = () => {
   return (
     <nav className="flex justify-between mt-5 pb-5 mb-10 border-b-2 border-gray-700 items-center">
       <Link href="/" className="pl-10">
-        Logo
+        Swift Find
       </Link>
       <div className="flex gap-7 pr-20 items-center">
         <Link href="/products">
@@ -33,6 +34,7 @@ export const NavBar = () => {
             <Image src={shoppingCart} alt="" height={24} width={24} />
           </Button>
         </Link>
+        <LogoutButton />
         <Avatar>
           <AvatarImage src={user.imageUrl} alt="User profile picture" />
           <AvatarFallback className="bg-slate-500">

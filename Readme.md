@@ -38,6 +38,7 @@ The server-side of the project is located in the `Server` directory.
 - [x] On Passport callback, save the user to the DB with relevant data\
 - [x] send the display name and image url to the front end to display them\
 - [x] Implement sessions using cookies and Passport\
+- [x] Update the maxAge of the cookie before production\
 - [] Set the NODE_ENV variable to production before deploying environment
 
 **Client:**
@@ -45,6 +46,7 @@ The server-side of the project is located in the `Server` directory.
 - [x] Fetch data from the backend and show it at the homepage\
 - [x] Create dynamic route for each product that displays the image and description\
 - [x] Make all the routes need authentication\
+- [] Add a logout button that clears out the cookies
 - [] Make a shopping cart page\
 - [] Implement adding products to cart\
 - [] Allow user to delete products from the cart\
