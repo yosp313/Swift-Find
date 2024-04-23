@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser";
 
 import { authRouter } from "./routes/authRouter";
 import { userRouter } from "./routes/usersRouter";
-import { productRouter } from "./routes/productRouter";
+import { cartRouter } from "./routes/cartRouter";
 
 configDotenv();
 
@@ -42,7 +42,7 @@ app.use(passport.session());
 
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
-app.use("/products", productRouter);
+app.use("/cart", cartRouter);
 
 app.listen("8000", () => {
   console.log("server running on TS at port 8000");

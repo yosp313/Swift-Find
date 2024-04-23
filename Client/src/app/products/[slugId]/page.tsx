@@ -1,5 +1,5 @@
+import AddToCart from "@/components/AddToCart";
 import { NavBar } from "@/components/NavBar";
-import { Button } from "@/components/ui/button";
 import { getSingleProduct } from "@/utils/sanity/sanity";
 import Image from "next/image";
 
@@ -26,9 +26,7 @@ export default async function ProductPage({
         </div>
         <div className="flex flex-col items-center gap-20 pl-20">
           <p>{product.description}</p>
-          <Button variant={"secondary"} className="font-bold">
-            Add to cart
-          </Button>
+          <AddToCart data={product} />
         </div>
       </div>
     </>
