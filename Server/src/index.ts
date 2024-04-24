@@ -8,6 +8,7 @@ import cookieParser from "cookie-parser";
 import { authRouter } from "./routes/authRouter";
 import { userRouter } from "./routes/usersRouter";
 import { cartRouter } from "./routes/cartRouter";
+import { paymentRouter } from "./routes/paymentRouter";
 
 configDotenv();
 
@@ -16,7 +17,7 @@ const app: Express = express();
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000", "http://localhost:8000"],
+    origin: "http://localhost:3000",
     methods: ["GET"],
   })
 );
@@ -43,6 +44,7 @@ app.use(passport.session());
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
 app.use("/cart", cartRouter);
+app.use("/payment", paymentRouter);
 
 app.listen("8000", () => {
   console.log("server running on TS at port 8000");
