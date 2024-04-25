@@ -3,8 +3,11 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { Product } from "@/utils/sanity/types";
+import { useCart } from "@/context";
 
 export default function AddToCart({ data }: { readonly data: Product }) {
+  const { addToCart } = useCart();
+
   const handleSubmit = async () => {
     await fetch("http://localhost:8000/cart", {
       method: "post",

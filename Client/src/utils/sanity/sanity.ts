@@ -1,41 +1,37 @@
 "use server";
 
 import { createClient } from "next-sanity";
-import sanityClientConf from "./sanity-client-config";
-import { Product } from "./types";
+import sanityClientConf from "./sanity.config";
+import { Headset } from "./types";
 
 export const getProducts = async () => {
-  const query = `*[_type == "product"]{
+  const query = `*[_type == "headsets"]{
     _id,
-    _createdAt,
-    title,
+    name,
     "slug": slug.current,
     description,
-    price,
-    mainImage {
+    image {
       asset->{
         url
       }
     }
   }`;
-  return await createClient(sanityClientConf).fetch<Product[]>(query);
+  return await createClient(sanityClientConf).fetch<Headset[]>(query);
 };
 
-export const getSingleProduct = async (slugId: string): Promise<Product> => {
+export const getSingleProduct = async (slugId: string): Promise<Headset> => {
   const slug = slugId;
-  const query = `*[_type == 'product' && slug.current == $slug][0]{
+  const query = `*[_type == 'headsets' && slug.current == $slug][0]{
     _id,
-    _createdAt,
-    title,
+    name,
     "slug": slug.current,
     description,
-    mainImage {
+    image {
       asset->{
         url
       }
     },
-    price
   }`;
 
-  return await createClient(sanityClientConf).fetch<Product>(query, { slug });
+  return await createClient(sanityClientConf).fetch<Headset>(query, { slug });
 };

@@ -1,12 +1,12 @@
-export type Product = {
+export type Headset = {
   _id: string;
-  title: string;
+  name: string;
   slug: string;
   description: string;
-  createdAt: string;
-  mainImage: {
+  image: {
     asset: {
       url: string;
     };
   };
+  priceData: string;
 };

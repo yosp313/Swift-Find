@@ -8,6 +8,8 @@ import React from "react";
 export default async function Products() {
   const products = await getProducts();
 
+  console.log(products[0]);
+
   return (
     <>
       <NavBar />
@@ -16,15 +18,15 @@ export default async function Products() {
         <div className="flex gap-20 pt-20 flex-wrap items-end">
           {products.map((product) => (
             <Link href={`products/${product.slug}`} key={product._id}>
-              <Card className="bg-black text-white border-2 border-gray-500 flex flex-col items-center min-h-fit w-56">
+              <Card className="bg-black text-white border-2 border-zinc-500 flex flex-col items-center min-h-fit w-56">
                 <CardHeader>
-                  <CardTitle>{product.title}</CardTitle>
+                  <CardTitle>{product.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <Image
-                    className="rounded-md"
-                    src={product.mainImage.asset.url}
-                    alt={`${product.title} image`}
+                    className="rounded-md aspect-[5/6]"
+                    src={product.image.asset.url}
+                    alt={`${product.name} image`}
                     width={200}
                     height={200}
                   />

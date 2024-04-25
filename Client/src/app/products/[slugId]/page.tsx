@@ -15,11 +15,11 @@ export default async function ProductPage({
       <NavBar />
       <div className="flex justify-center items-center gap-5">
         <div className="flex flex-col gap-5">
-          <h1 className="text-4xl font-semibold">{product.title}</h1>
+          <h1 className="text-4xl font-semibold">{product.name}</h1>
           <Image
             className="rounded-md h-auto w-auto"
-            src={product.mainImage.asset.url}
-            alt={`${product.title} image`}
+            src={product.image.asset.url}
+            alt={`${product.name} image`}
             width={400}
             height={400}
           />
