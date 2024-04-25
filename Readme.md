@@ -41,6 +41,7 @@ The server-side of the project is located in the `Server` directory.
 - [x] Update the maxAge of the cookie before production\
 - [x] Implement payment using Stripe API\
 - [x] Embed the product's data in processing the payment\
+- [] process the cart's data to extract an array of price data and quantity and send it to stripe\
 - [] Switch the test api key for a production one for stripe\
 - [] Set the NODE_ENV variable to production before deploying environment
 
@@ -51,11 +52,13 @@ The server-side of the project is located in the `Server` directory.
 - [x] Make all the routes need authentication\
 - [x] Add a logout button that clears out the cookies\
 - [x] modify the sanity schema
-- [] Add quantity counter
-- [] Improve the styling of the Purchase button\
 - [x] Make a shopping cart page\
 - [x] Implement adding products to cart\
 - [x] Allow user to delete products from the cart\
+- [] Add quantity counter\
+- [] Save the cart's data in local storage\
+- [] Send the cart's data to the server\
+- [] Improve the styling of the Purchase button\
 - [] Add a user form to leave a review on the website after purchasing (optional)
 
 ## License

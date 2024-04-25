@@ -9,4 +9,5 @@ export type Headset = {
     };
   };
   priceData: string;
+  quantity: number;
 };
