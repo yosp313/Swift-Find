@@ -1,15 +1,11 @@
 "use client";
 
+import { Headset } from "@/utils/sanity/types";
 import { createContext, useContext, useState } from "react";
 
-export type Cart = {
-  price_data: string;
-  quantity: number;
-};
-
 type ContextType = {
-  cart: Cart[];
-  addToCart: (newItem: Cart) => void;
+  cart: Headset[];
+  addToCart: (newItem: Headset) => void;
   removeFromCart: (itemId: string) => void;
 };
 
@@ -24,16 +20,14 @@ export function AppWrapper({
 }: {
   readonly children: React.ReactNode;
 }) {
-  const [cart, setCart] = useState<Cart[]>([]);
+  const [cart, setCart] = useState<Headset[]>([]);
 
-  const addToCart = (newItem: Cart) => {
+  const addToCart = (newItem: Headset) => {
     setCart((prevCart) => [...prevCart, newItem]);
   };
 
   const removeFromCart = (itemId: string) => {
-    setCart((prevCart) =>
-      prevCart.filter((item) => item.price_data !== itemId)
-    );
+    setCart((prevCart) => prevCart.filter((item) => item._id !== itemId));
   };
 
   return (

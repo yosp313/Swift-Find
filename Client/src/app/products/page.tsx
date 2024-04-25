@@ -19,10 +19,7 @@ export default async function Products() {
           {products.map((product) => (
             <Link href={`products/${product.slug}`} key={product._id}>
               <Card className="bg-black text-white border-2 border-zinc-500 flex flex-col items-center min-h-fit w-56">
-                <CardHeader>
-                  <CardTitle>{product.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
+                <CardContent className="flex flex-col gap-4 p-5">
                   <Image
                     className="rounded-md aspect-[5/6]"
                     src={product.image.asset.url}
@@ -30,6 +27,7 @@ export default async function Products() {
                     width={200}
                     height={200}
                   />
+                  <CardTitle>{product.name}</CardTitle>
                 </CardContent>
               </Card>
             </Link>

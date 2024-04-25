@@ -2,26 +2,19 @@
 
 import React from "react";
 import { Button } from "./ui/button";
-import { Product } from "@/utils/sanity/types";
+import { Headset } from "@/utils/sanity/types";
 import { useCart } from "@/context";
 
-export default function AddToCart({ data }: { readonly data: Product }) {
+export default function AddToCart({ data }: { readonly data: Headset }) {
   const { addToCart } = useCart();
 
-  const handleSubmit = async () => {
-    await fetch("http://localhost:8000/cart", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-  };
   return (
-    <form action={handleSubmit}>
-      <Button variant={"secondary"} className="font-bold" type="submit">
-        Add to cart
-      </Button>
-    </form>
+    <Button
+      variant={"secondary"}
+      className="font-bold"
+      onClick={() => addToCart(data)}
+    >
+      Add to cart
+    </Button>
   );
 }
