@@ -4,23 +4,26 @@ import DeleteButton from "@/components/DeleteButton";
 import { NavBar } from "@/components/NavBar";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context";
-import { Headset } from "@/utils/sanity/types";
 import Image from "next/image";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function ShoppingCart() {
   const { cart } = useCart();
+  const router = useRouter();
 
-  const handleSubmit = async (cart: Headset[]) => {
-    await fetch("http://localhost:8000/payment", {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(cart),
+  const handleSubmit = async () => {
+    const purchaseData = cart.map((item) => ({
+      price: item["price_data"],
+      quantity: item["quantity"],
+    }));
+
+    const response = await axios.post("http://localhost:8000/payment", {
+      data: purchaseData,
     });
-  };
 
-  console.log(cart);
+    router.push(response.data);
+  };
 
   return (
     <>
@@ -31,7 +34,7 @@ export default function ShoppingCart() {
           {cart.map((item) => {
             return (
               <div
-                className="flex items-center gap-44 pr-96 border-t-2 border-zinc-700 w-full"
+                className="flex items-center gap-44 pr-96 border-t-2 border-zinc-800 w-full"
                 key={item._id}
               >
                 <Image
@@ -41,15 +44,16 @@ export default function ShoppingCart() {
                   height={150}
                   className="m-5"
                 />
+                <p className="flex-nowrap">X {item.quantity}</p>
                 <h1>{item.name}</h1>
                 <DeleteButton id={item._id} />
               </div>
             );
           })}
         </div>
-        <div className="flex flex-col justify-center items-center min-h-screen w-full bg-zinc-950">
+        <div className="flex flex-col justify-center items-center min-h-screen w-full ">
           <h1 className="text-5xl font-bold p-28">Total: </h1>
-          <form action={() => handleSubmit}>
+          <form action={handleSubmit}>
             <Button variant={"secondary"} type="submit">
               Purchase
             </Button>

@@ -8,6 +8,6 @@ export type Headset = {
       url: string;
     };
   };
-  priceData: string;
+  price_data: string;
   quantity: number;
 };

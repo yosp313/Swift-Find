@@ -26,6 +26,7 @@ export const getSingleProduct = async (slugId: string): Promise<Headset> => {
     name,
     "slug": slug.current,
     description,
+    price_data,
     image {
       asset->{
         url

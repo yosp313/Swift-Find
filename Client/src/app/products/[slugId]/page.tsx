@@ -1,4 +1,4 @@
-import AddToCart from "@/components/AddToCart";
+import ClientButtons from "@/components/AddToCart";
 import { NavBar } from "@/components/NavBar";
 import { getSingleProduct } from "@/utils/sanity/sanity";
 import Image from "next/image";
@@ -9,6 +9,10 @@ export default async function ProductPage({
   readonly params: { slugId: string };
 }) {
   const product = await getSingleProduct(params.slugId);
+
+  product.quantity = 1;
+
+  console.log(product);
 
   return (
     <>
@@ -26,7 +30,7 @@ export default async function ProductPage({
         </div>
         <div className="flex flex-col items-center gap-20 pl-20">
           <p>{product.description}</p>
-          <AddToCart data={product} />
+          <ClientButtons data={product} />
         </div>
       </div>
     </>
