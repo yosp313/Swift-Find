@@ -18,9 +18,12 @@ export default function ShoppingCart() {
       quantity: item["quantity"],
     }));
 
-    const response = await axios.post("http://localhost:8000/payment", {
-      data: purchaseData,
-    });
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/payment`,
+      {
+        data: purchaseData,
+      }
+    );
 
     router.push(response.data);
   };

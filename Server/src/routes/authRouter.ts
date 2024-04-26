@@ -1,5 +1,8 @@
+import { configDotenv } from "dotenv";
 import { Request, Response, Router } from "express";
 import passport from "passport";
+
+configDotenv();
 
 const passportConfig = require("../config/passport");
 export const authRouter = Router();
@@ -23,6 +26,6 @@ authRouter.get(
       secure: true,
       path: "/",
     });
-    res.redirect("http://localhost:3000/products");
+    res.redirect(`${process.env.CLIENT_URL}/products`);
   }
 );
