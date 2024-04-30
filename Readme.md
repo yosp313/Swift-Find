@@ -1,6 +1,6 @@
 ## Swift Find
 
-This project is divided into two main parts: the Client and the Server.
+This project is an E-commerce webapp to sell high quality, high end headsets.
 
 ### Client
 
