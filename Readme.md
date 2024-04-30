@@ -42,8 +42,7 @@ The server-side of the project is located in the `Server` directory.
 - [x] Implement payment using Stripe API\
 - [x] Embed the product's data in processing the payment\
 - [x] process the cart's data to extract an array of price data and quantity and send it to stripe\
-- [] Implement a refresh token\
-- [] Add the price to the Headset Object in the cms
+- [] Add the price to the Headset Object in the cms\
 - [] Save the Order ID to the database attached to the user ID\
 - [] Switch the test api key for a production one for stripe\
 - [] Set the NODE_ENV variable to production before deploying environment
