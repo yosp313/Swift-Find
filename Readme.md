@@ -64,6 +64,7 @@ The server-side of the project is located in the `Server` directory.
 - [] Add nav bar to the shopping cart page\
 - [] Save the cart's data in local storage\
 - [] Improve the styling of the Purchase button\
+- [] Add a location for the order
 
 ## License
 
