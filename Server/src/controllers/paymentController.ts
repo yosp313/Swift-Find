@@ -8,7 +8,6 @@ type Items = {
 
 export const paymentController = async (req: Request, res: Response) => {
   const itemsList: Items[] = req.body.data;
-  console.log(itemsList);
 
   const session = await stripe.checkout.sessions.create({
     line_items: itemsList,

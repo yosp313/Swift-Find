@@ -12,8 +12,6 @@ export default async function ProductPage({
 
   product.quantity = 1;
 
-  console.log(product);
-
   return (
     <>
       <NavBar />
