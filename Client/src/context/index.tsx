@@ -1,18 +1,20 @@
 "use client";
 
 import { Headset } from "@/utils/sanity/types";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 type ContextType = {
   cart: Headset[];
   addToCart: (newItem: Headset) => void;
   removeFromCart: (itemId: string) => void;
+  total: number;
 };
 
 export const CartContext = createContext<ContextType>({
   cart: [],
   addToCart: (newItem) => {},
   removeFromCart: (itemId) => {},
+  total: 0,
 });
 
 export function AppWrapper({
@@ -20,18 +22,32 @@ export function AppWrapper({
 }: {
   readonly children: React.ReactNode;
 }) {
-  const [cart, setCart] = useState<Headset[]>([]);
+  const savedCart = localStorage.getItem("cart");
+  const [cart, setCart] = useState<Headset[]>(() =>
+    savedCart ? JSON.parse(savedCart) : []
+  );
 
   const addToCart = (newItem: Headset) => {
     setCart((prevCart) => [...prevCart, newItem]);
   };
+
+  const [total, setTotal] = useState<number>(0);
+
+  function calculateTotal(cart: Headset[]): number {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  }
+
+  useEffect(() => {
+    setTotal(calculateTotal(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const removeFromCart = (itemId: string) => {
     setCart((prevCart) => prevCart.filter((item) => item._id !== itemId));
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, total }}>
       {children}
     </CartContext.Provider>
   );

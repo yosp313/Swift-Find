@@ -1,12 +1,13 @@
 "use client";
 
 import DeleteButton from "@/components/DeleteButton";
-import { NavBar } from "@/components/NavBar";
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/context";
+import { CartContext, useCart } from "@/context";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { Headset } from "@/utils/sanity/types";
+import { useContext } from "react";
 
 export default function ShoppingCart({
   children,
@@ -14,6 +15,7 @@ export default function ShoppingCart({
   readonly children: React.ReactNode;
 }) {
   const { cart } = useCart();
+  const { total } = useCart();
   const router = useRouter();
 
   const handleSubmit = async () => {
@@ -51,7 +53,11 @@ export default function ShoppingCart({
                   height={150}
                   className="m-5"
                 />
-                <p className="flex-nowrap">X {item.quantity}</p>
+                <div className="flex items-center justify-center gap-12">
+                  <p className="flex-nowrap">
+                    ${item.price} X {item.quantity}
+                  </p>
+                </div>
                 <h1>{item.name}</h1>
                 <DeleteButton id={item._id} />
               </div>
@@ -59,7 +65,7 @@ export default function ShoppingCart({
           })}
         </div>
         <div className="flex flex-col justify-center items-center min-h-screen w-full ">
-          <h1 className="text-5xl font-bold p-28">Total: </h1>
+          <h1 className="text-5xl font-bold p-28">Total: ${total}</h1>
           <form action={handleSubmit}>
             <Button variant={"secondary"} type="submit">
               Purchase

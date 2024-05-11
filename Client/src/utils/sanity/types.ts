@@ -3,6 +3,7 @@ export type Headset = {
   name: string;
   slug: string;
   description: string;
+  price: number;
   image: {
     asset: {
       url: string;

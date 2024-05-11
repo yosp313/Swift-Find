@@ -37,6 +37,11 @@ const headset = {
       title: 'Price Data',
       type: 'string',
     },
+    {
+      name: 'price',
+      title: 'Price',
+      type: 'number',
+    },
   ],
 }
 

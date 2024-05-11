@@ -27,7 +27,8 @@ export default async function ProductPage({
           />
         </div>
         <div className="flex flex-col items-center gap-20 pl-20">
-          <p>{product.description}</p>
+          <p className="text-2xl">{product.description}</p>
+          <p className="text-2xl text-zinc-300">Price: ${product.price}</p>
           <ClientButtons data={product} />
         </div>
       </div>

@@ -1,5 +1,10 @@
 import { NavBar } from "@/components/NavBar";
-import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardTitle,
+} from "@/components/ui/card";
 import { getProducts } from "@/utils/sanity/sanity";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,6 +31,9 @@ export default async function Products() {
                     height={200}
                   />
                   <CardTitle>{product.name}</CardTitle>
+                  <CardDescription className="text-zinc-300">
+                    ${product.price}
+                  </CardDescription>
                 </CardContent>
               </Card>
             </Link>
