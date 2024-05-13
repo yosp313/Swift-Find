@@ -2,12 +2,11 @@
 
 import DeleteButton from "@/components/DeleteButton";
 import { Button } from "@/components/ui/button";
-import { CartContext, useCart } from "@/context";
+import { useCart } from "@/context";
 import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { Headset } from "@/utils/sanity/types";
-import { useContext } from "react";
+import { useState } from "react";
 
 export default function ShoppingCart({
   children,
@@ -17,7 +16,14 @@ export default function ShoppingCart({
   const { cart } = useCart();
   const { total } = useCart();
   const router = useRouter();
+  const [formData, setFormData] = useState({
+    country: "",
+    city: "",
+  });
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
   const handleSubmit = async () => {
     const purchaseData = cart.map((item) => ({
       price: item["price_data"],
@@ -28,9 +34,11 @@ export default function ShoppingCart({
       `${process.env.NEXT_PUBLIC_SERVER_URL}/payment`,
       {
         data: purchaseData,
+        location: formData,
       }
     );
 
+    console.log(location);
     router.push(response.data);
   };
 
@@ -67,6 +75,24 @@ export default function ShoppingCart({
         <div className="flex flex-col justify-center items-center min-h-screen w-full ">
           <h1 className="text-5xl font-bold p-28">Total: ${total}</h1>
           <form action={handleSubmit}>
+            <label htmlFor="country">Country: </label>
+            <input
+              name="country"
+              id="country"
+              type="text"
+              placeholder="eg: South Korea"
+              value={formData.country}
+              onChange={handleChange}
+            />
+            <label htmlFor="city">City: </label>
+            <input
+              name="city"
+              id="city"
+              type="text"
+              placeholder="eg: Seoul"
+              value={formData.city}
+              onChange={handleChange}
+            />
             <Button variant={"secondary"} type="submit">
               Purchase
             </Button>
