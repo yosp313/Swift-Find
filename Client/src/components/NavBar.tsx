@@ -8,6 +8,13 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import LogoutButton from "./logout/LogoutButton";
 
+export type User = {
+  id: string;
+  fullName: string;
+  email: string;
+  imageUrl: string;
+};
+
 export const NavBar = () => {
   const cookiesStore = cookies();
   const userCookie: string = cookiesStore.get("user")?.value.slice(2) as string;
@@ -16,7 +23,7 @@ export const NavBar = () => {
     return redirect("/");
   }
 
-  const user = JSON.parse(userCookie)[0];
+  const user: User = JSON.parse(userCookie)[0];
 
   return (
     <nav className="flex justify-between mt-5 pb-5 mb-10 border-b-2 border-gray-700 items-center">

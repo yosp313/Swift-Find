@@ -10,8 +10,10 @@ import { useState } from "react";
 
 export default function ShoppingCart({
   children,
+  userId,
 }: {
   readonly children: React.ReactNode;
+  readonly userId: string;
 }) {
   const { cart } = useCart();
   const { total } = useCart();
@@ -35,6 +37,7 @@ export default function ShoppingCart({
       {
         data: purchaseData,
         location: formData,
+        userId: userId,
       }
     );
 

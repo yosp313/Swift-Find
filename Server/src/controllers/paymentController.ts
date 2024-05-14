@@ -16,6 +16,7 @@ type Location = {
 export const paymentController = async (req: Request, res: Response) => {
   const itemsList: Items[] = req.body.data;
   const location: Location = req.body.location;
+  const userData = req.body.userId;
 
   const itemsString: string = JSON.stringify(itemsList);
 
@@ -23,11 +24,12 @@ export const paymentController = async (req: Request, res: Response) => {
     city: location.city,
     country: location.country,
     products: itemsString,
-    userId: req.cookies.user,
+    userId: userData,
   };
 
   console.log(order);
   console.log(itemsString);
+  console.log(userData);
 
   const session = await stripe.checkout.sessions.create({
     line_items: itemsList,
