@@ -34,11 +34,15 @@ export const paymentController = async (req: Request, res: Response) => {
   const session = await stripe.checkout.sessions.create({
     line_items: itemsList,
     mode: "payment",
-    success_url: `${process.env.CLIENT_URL}/products?success=true`,
-    cancel_url: `${process.env.CLIENT_URL}/products?canceled=true`,
+    success_url: `${process.env.CLIENT_URL}/shopping-cart/success`,
+    cancel_url: `${process.env.CLIENT_URL}/shopping-cart/canceled`,
   });
+  console.log(session.payment_intent);
+  console.log(session.payment_status);
 
-  if (order.city !== null) await postOrder(order);
+  if (order !== null) {
+    await postOrder(order);
+  }
 
   res.send(session.url as string);
 };
