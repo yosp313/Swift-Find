@@ -7,6 +7,7 @@ import Image from "next/image";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Input } from "@/components/ui/input";
 
 export default function ShoppingCart({
   children,
@@ -21,6 +22,7 @@ export default function ShoppingCart({
   const [formData, setFormData] = useState({
     country: "",
     city: "",
+    address: "",
   });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,6 +40,7 @@ export default function ShoppingCart({
         data: purchaseData,
         location: formData,
         userId: userId,
+        totalCost: total,
       }
     );
 
@@ -62,7 +65,7 @@ export default function ShoppingCart({
                   alt="Product Image"
                   width={150}
                   height={150}
-                  className="m-5"
+                  className="m-5 rounded-md"
                 />
                 <div className="flex items-center justify-center gap-12">
                   <p className="flex-nowrap">
@@ -75,11 +78,12 @@ export default function ShoppingCart({
             );
           })}
         </div>
-        <div className="flex flex-col justify-center items-center min-h-screen w-full ">
+        <div className="flex flex-col justify-center items-center min-h-screen w-full gap-2">
           <h1 className="text-5xl font-bold p-28">Total: ${total}</h1>
           <form action={handleSubmit}>
             <label htmlFor="country">Country: </label>
-            <input
+            <Input
+              className="mb-10 bg-black"
               name="country"
               id="country"
               type="text"
@@ -88,12 +92,23 @@ export default function ShoppingCart({
               onChange={handleChange}
             />
             <label htmlFor="city">City: </label>
-            <input
+            <Input
+              className="mb-10 bg-black"
               name="city"
               id="city"
               type="text"
               placeholder="eg: Seoul"
               value={formData.city}
+              onChange={handleChange}
+            />
+            <label htmlFor="address">Address: </label>
+            <Input
+              className="mb-10 bg-black"
+              name="address"
+              id="address"
+              type="text"
+              placeholder="eg: Jongno st."
+              value={formData.address}
               onChange={handleChange}
             />
             <Button variant={"secondary"} type="submit">

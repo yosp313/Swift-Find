@@ -11,25 +11,25 @@ type Items = {
 type Location = {
   country: string;
   city: string;
+  address: string;
 };
 
 export const paymentController = async (req: Request, res: Response) => {
   const itemsList: Items[] = req.body.data;
   const location: Location = req.body.location;
   const userData = req.body.userId;
+  const totalCost = req.body.totalCost;
 
   const itemsString: string = JSON.stringify(itemsList);
 
   const order: Order = {
     city: location.city,
     country: location.country,
+    address: location.address,
     products: itemsString,
     userId: userData,
+    cost: totalCost,
   };
-
-  console.log(order);
-  console.log(itemsString);
-  console.log(userData);
 
   const session = await stripe.checkout.sessions.create({
     line_items: itemsList,

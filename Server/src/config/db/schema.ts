@@ -2,7 +2,7 @@ import {
   pgTable,
   pgEnum,
   text,
-  foreignKey,
+  numeric,
   uuid,
   timestamp,
 } from "drizzle-orm/pg-core";
@@ -76,6 +76,8 @@ export const orders = pgTable("orders", {
     .references(() => users.id, { onDelete: "cascade", onUpdate: "cascade" }),
   country: text("country").notNull(),
   city: text("city").notNull(),
+  address: text("address").notNull(),
+  cost: numeric("cost").notNull(),
 });
 
 export type User = typeof users.$inferSelect;
@@ -84,4 +86,6 @@ export type Order = {
   userId: string;
   country: string;
   city: string;
+  address: string;
+  cost: string;
 };

@@ -34,7 +34,11 @@ export function AppWrapper({
   const [total, setTotal] = useState<number>(0);
 
   function calculateTotal(cart: Headset[]): number {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    const total = cart.reduce(
+      (total, item) => total + item.price * item.quantity,
+      0
+    );
+    return Number(total.toFixed(2));
   }
 
   useEffect(() => {

@@ -7,5 +7,7 @@ export const postOrder = async (order: Order) => {
     products: order.products,
     city: order.city,
     country: order.country,
+    address: order.address,
+    cost: order.cost,
   });
 };
