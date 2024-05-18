@@ -22,7 +22,8 @@ export function AppWrapper({
 }: {
   readonly children: React.ReactNode;
 }) {
-  const savedCart = localStorage.getItem("cart");
+  const savedCart =
+    typeof window !== "undefined" ? localStorage.getItem("cart") : "";
   const [cart, setCart] = useState<Headset[]>(() =>
     savedCart ? JSON.parse(savedCart) : []
   );
@@ -43,7 +44,8 @@ export function AppWrapper({
 
   useEffect(() => {
     setTotal(calculateTotal(cart));
-    localStorage.setItem("cart", JSON.stringify(cart));
+    if (typeof window !== "undefined")
+      localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
   const removeFromCart = (itemId: string) => {
